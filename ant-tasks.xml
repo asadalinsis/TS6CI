@@ -3,7 +3,10 @@
 	<!-- <property name="tomcat.dir" location="C:\JavaFrameworks\apache-tomcat-7.0.57-windows-x64" /> -->
 	
 	<target name="stop-tomcat">
-		<exec dir="${CATALINA_HOME}/bin"  executable="shutdown.bat"/>
+	 	<java jar="${CATALINA_HOME}/bin/bootstrap.jar" fork="true">
+        	<jvmarg value="-Dcatalina.home=${CATALINA_HOME}"/>
+        	<arg line="stop"/>
+    	</java>
 	</target>
 	<target name="remove-previous-webapp" depends="stop-tomcat">
 		<echo message="${CATALINA_HOME}  is the direcotry in apache ant"/>
@@ -12,7 +15,9 @@
 		<delete dir="${CATALINA_HOME}\work\Catalina\localhost\TS6RS"/>
     </target>
     <target name="start-tomcat" depends="remove-previous-webapp">
-		<exec dir="${CATALINA_HOME}/bin"  executable="startup.bat"/>
+		<java jar="${CATALINA_HOME}/bin/bootstrap.jar" fork="true">
+        	<jvmarg value="-Dcatalina.home=${CATALINA_HOME}"/>
+    	</java>
 	</target>
 	
 </project>
