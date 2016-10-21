@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="deldirectories" default="start-tomcat" basedir=".">
+	<!-- <property name="tomcat.dir" location="C:\JavaFrameworks\apache-tomcat-7.0.57-windows-x64" /> -->
+	<target name="stop-tomcat">
+		<exec executable="${tomcat.dir}/bin/shutdown.bat"/>
+	</target>
+	<target name="remove-previous-webapp" depends="stop-tomcat">
+		<!-- <echo message="${tomcat.dir}  is the direcotry in apache ant"/> -->
+		<delete dir="${tomcat.dir}\webapps\TS6RS"/>
+		<delete dir="${tomcat.dir}\work\Catalina\localhost\TS6RS"/>
+    </target>
+    <target name="start-tomcat" depends="remove-previous-webapp">
+		<exec executable="${tomcat.dir}/bin/startup.bat"/>
+	</target>
+	
+</project>
