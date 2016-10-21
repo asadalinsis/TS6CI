@@ -2,6 +2,7 @@
 <project name="deldirectories" default="remove-previous-webapp" basedir=".">
 	<!-- <property name="tomcat.dir" location="C:\JavaFrameworks\apache-tomcat-7.0.57-windows-x64" /> -->
 	<target name="remove-previous-webapp">
+		<echo message="${tomcat.dir}  is the direcotry in apache ant"/>
 		<delete dir="${tomcat.dir}\webapps\TS6RS"/>
 		<delete dir="${tomcat.dir}\work\Catalina\localhost\TS6RS"/>
     </target>
