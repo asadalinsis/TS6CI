@@ -10,6 +10,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+/**
+ * Added a comment for commit to happen
+ * @author Asad.Ali
+ *
+ */
 @Path("/")
 public class RSWS {
 	private static List<User> listUsers = new ArrayList<User>();
