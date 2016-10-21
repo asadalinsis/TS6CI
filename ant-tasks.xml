@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="deldirectories" default="start-tomcat" basedir=".">
-	<!-- <property name="tomcat.dir" location="C:\JavaFrameworks\apache-tomcat-7.0.57-windows-x64" /> -->
+	<!-- <property name="CATALINA_HOME" location="C:\JavaFrameworks\apache-tomcat-7.0.57-windows-x64" /> -->
 	
 	<target name="stop-tomcat">
 	 	<java jar="${CATALINA_HOME}/bin/bootstrap.jar" fork="true">
