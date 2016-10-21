@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="deldirectories" default="start-tomcat" basedir=".">
-	<!-- <property name="CATALINA_HOME" location="C:\JavaFrameworks\apache-tomcat-7.0.57-windows-x64" 
-		/> -->
+	
 	<target name="stop-tomcat">
-		<exec executable="${CATALINA_HOME}/bin/shutdown.bat"/>
+		<exec executable="${CATALINA_HOME}/bin/shutdown.bat">
+			<env key="CATALINA_HOME" value="${CATALINA_HOME}" />
+		</exec>
 	</target>
 	<target name="remove-previous-webapp" depends="stop-tomcat">
 		<echo message="${CATALINA_HOME}  is the direcotry in apache ant" />
@@ -12,7 +13,9 @@
 		<delete dir="${CATALINA_HOME}\work\Catalina\localhost\TS6RS" />
 	</target>
 	<target name="start-tomcat" depends="remove-previous-webapp">
-		<exec executable="${CATALINA_HOME}/bin/startup.bat"/>
+		<exec executable="${CATALINA_HOME}/bin/startup.bat">
+			<env key="CATALINA_HOME" value="${CATALINA_HOME}" />
+		</exec>
 	</target>
 
 </project>
