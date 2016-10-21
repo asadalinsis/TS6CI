@@ -31,7 +31,6 @@ public class User {
 	
 	@Override
 	public boolean equals(Object obj) {
-		System.out.println("equals called with "+obj);
 		boolean isSame = false;
         if (obj != null && obj instanceof User){
         	isSame = this.getFirstName().equals(((User)obj).getFirstName()) && this.getLastName().equals(((User)obj).getLastName());
