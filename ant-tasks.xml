@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="deldirectories" default="start-tomcat" basedir=".">
-	<!-- <property name="CATALINA_HOME" location="C:\JavaFrameworks\apache-tomcat-7.0.57-windows-x64" /> -->
-	
+	<!-- <property name="CATALINA_HOME" location="C:\JavaFrameworks\apache-tomcat-7.0.57-windows-x64" 
+		/> -->
 	<target name="stop-tomcat">
-	 	<java jar="${CATALINA_HOME}/bin/bootstrap.jar" fork="true">
-        	<jvmarg value="-Dcatalina.home=${CATALINA_HOME}"/>
-        	<arg line="stop"/>
-    	</java>
+		<exec executable="${CATALINA_HOME}/bin/shutdown.bat"/>
 	</target>
 	<target name="remove-previous-webapp" depends="stop-tomcat">
-		<echo message="${CATALINA_HOME}  is the direcotry in apache ant"/>
-		<delete file="${CATALINA_HOME}\webapps\TS6RS.war"/>
-		<delete dir="${CATALINA_HOME}\webapps\TS6RS"/>
-		<delete dir="${CATALINA_HOME}\work\Catalina\localhost\TS6RS"/>
-    </target>
-    <target name="start-tomcat" depends="remove-previous-webapp">
-		<java jar="${CATALINA_HOME}/bin/bootstrap.jar" fork="true">
-        	<jvmarg value="-Dcatalina.home=${CATALINA_HOME}"/>
-    	</java>
+		<echo message="${CATALINA_HOME}  is the direcotry in apache ant" />
+		<delete file="${CATALINA_HOME}\webapps\TS6RS.war" />
+		<delete dir="${CATALINA_HOME}\webapps\TS6RS" />
+		<delete dir="${CATALINA_HOME}\work\Catalina\localhost\TS6RS" />
 	</target>
-	
+	<target name="start-tomcat" depends="remove-previous-webapp">
+		<exec executable="${CATALINA_HOME}/bin/startup.bat"/>
+	</target>
+
 </project>
