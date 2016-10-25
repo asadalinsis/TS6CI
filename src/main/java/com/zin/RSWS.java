@@ -25,7 +25,7 @@ public class RSWS {
 	@Path("/ping")
 	public Response ping()
 	{
-		String output = "Webservice is working";
+		String output = "Webservice is not working";
 		return Response.status(200).entity(output).build();
 	}
 	
