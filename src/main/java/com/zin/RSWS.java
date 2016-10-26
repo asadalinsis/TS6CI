@@ -25,14 +25,14 @@ public class RSWS {
 	@Path("/ping")
 	public Response ping()
 	{
-		String output = "Webservice is working";
+		String output = "Webservice is working agsin";
 		return Response.status(200).entity(output).build();
 	}
 	
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/addUser")
+	@Path("/")
 	public Response addUser(User user)
 	{
 		String output = "";
